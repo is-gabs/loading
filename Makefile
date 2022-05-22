@@ -34,3 +34,7 @@ release-minor:
 
 release-major:
 	@poetry run bumpversion major
+
+
+run-server:
+	@poetry run gunicorn wsgi -w 4 -b 0.0.0.0:8080
