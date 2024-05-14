@@ -17,14 +17,8 @@ clean:
 
 lint: clean flake8 check-python-import
 
-test_unit: clean
-	@poetry run pytest
-
 requirements:
 	@poetry install
-
-test_cov:
-	@poetry run pytest --cov-config .coveragerc --cov .
 
 release-patch:
 	@poetry run bumpversion patch
@@ -34,7 +28,6 @@ release-minor:
 
 release-major:
 	@poetry run bumpversion major
-
 
 run-server:
 	@poetry run gunicorn wsgi -w 4 -b 0.0.0.0:8080
