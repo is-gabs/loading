@@ -1,11 +1,10 @@
 import click
+from src.client import call
 
 
-@click.command()
-@click.option('--host', default='127.0.0.1')
-@click.option('--port', default='8080')
-def get(host, port):
-    click.echo(f'http://{host}:{port}')
+def get(url=''):
+    result = call('', 'http://localhost:8080/test')
+    print(result)
 
 
 if __name__ == '__main__':
